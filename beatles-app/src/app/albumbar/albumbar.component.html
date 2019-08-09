@@ -1,0 +1,16 @@
+
+<div class="origin">
+
+<!--     <mat-nav-list>
+        <mat-list-item *ngFor="let link of fillerNav">
+            <a matLine href="...">{{ link }}</a>
+            <button mat-icon-button (click)="showInfo(link)">
+                <mat-icon>info</mat-icon>
+            </button>
+        </mat-list-item>
+    </mat-nav-list> -->
+
+    <mat-action-list *ngFor="let album of _albums">
+        <button mat-list-item (click)="save()"> {{ album.name }} </button>
+    </mat-action-list>
+</div>
