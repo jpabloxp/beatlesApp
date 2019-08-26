@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AlbumbarComponent } from '../albumbar/albumbar.component';
 
 @Component({
   selector: 'app-album',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumComponent implements OnInit {
 
-  constructor() { }
+  private testText: string;
+
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.testText = "THIS IS ALBUMINFO";
   }
+
+  receiveMessage($event) {
+    this.testText = $event;
+  }
+
+/*
+    @ViewChild(AlbumbarComponent, {static: false}) albumbar: AlbumbarComponent;
+    ngAfterViewInit() {
+    console.log(this.testText);
+    setTimeout(() => {
+      if(this.albumbar._selectedAlbum != null) this.testText = this.albumbar._selectedAlbum;
+    });
+  }
+*/
 
 }

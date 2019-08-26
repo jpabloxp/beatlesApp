@@ -36,7 +36,7 @@ const routes: Routes = [
     path: 'albumbar',
     component: AlbumbarComponent,
   },
-  { path: '**', redirectTo: 'home' },
+  //{ path: '**', redirectTo: 'home' },
 
 ];
 

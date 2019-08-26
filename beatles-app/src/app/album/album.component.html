@@ -3,12 +3,13 @@
 
     <div class="sidebar">
 
-        <app-albumbar></app-albumbar>
+        <app-albumbar (messageEvent)="receiveMessage($event)"></app-albumbar>
 
     </div>
 
     <div class="container">
         
+        <h1>{{ testText }}</h1>
     </div>
 
 </div>

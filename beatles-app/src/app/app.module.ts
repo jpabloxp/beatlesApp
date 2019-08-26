@@ -21,6 +21,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AlbuminfoComponent } from './albuminfo/albuminfo.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderComponent,
     FooterComponent,
     AlbumComponent,
-    AlbumbarComponent
+    AlbumbarComponent,
+    AlbuminfoComponent
   ],
   imports: [
     MatInputModule,
@@ -45,7 +48,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,13 @@ export interface Album{
   _id?: string;
   titre: string;
   year: string;
+  songs: [
+    {
+      title: string;
+      songwriters: string;
+      length: number;
+    }
+  ];
 }
 
 @Injectable({
@@ -25,12 +32,13 @@ export class AlbumService {
   getAlbums(): Observable<Album[]> {
 
     const albumListUrl = environment.apiURL + "/album";
+    console.log(albumListUrl);
 
     return this.http.get<Album[]>(albumListUrl);
   }
 
   // Get a single Album
-  getOneAlbum(id: string): Observable<Album> {
+/*   getOneAlbum(id: string): Observable<Album> {
     const getUrl = `${this.apiURL}/test/${id}`;
     console.log(getUrl);
     return this.http.get<Album>(getUrl);
@@ -42,6 +50,6 @@ export class AlbumService {
 
     const addUrl = `${this.apiURL}/add`;
     return this.http.post<Album>(addUrl, album);
-  }
-  
+  } */
+
 }
