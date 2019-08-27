@@ -3,13 +3,117 @@
 
     <div class="sidebar">
 
-        <app-albumbar (messageEvent)="receiveMessage($event)"></app-albumbar>
+        <app-albumbar [albumNames]="_albumNames" (messageEvent)="receiveMessage($event)"></app-albumbar>
 
     </div>
 
     <div class="container">
         
-        <h1>{{ testText }}</h1>
+        <div *ngIf="_focusedAlbum; else notShow">
+
+            <div class="album-header">
+
+                <div class="album-header-title">
+                    {{ testText }}
+                </div>
+    
+                <div class="album-header-year">
+                    {{ _focusedAlbum.year }}
+                </div>
+    
+                <div class="album-header-info">
+                    {{ _focusedAlbum.info }}
+                </div>
+    
+                <div class="album-header-photo">
+                    <img src="{{ _focusedAlbum?.photo }}">
+                </div>
+
+            </div>
+
+            <div class="album-musicians">
+                
+                <div class="album-musicians-head">
+                    Roles
+                </div>
+
+                <div *ngFor="let beatle of _focusedAlbum.musicians">
+
+                    <div class="album-musicians-title">
+                        John Lennon
+                    </div>
+                    <div class="album-musicians-info">
+                        {{ beatle.lennon }}
+                    </div>
+                    
+                    <div class="album-musicians-title">
+                        Paul McCartney
+                    </div>
+                    <div class="album-musicians-info">
+                        {{ beatle.macca }}
+                    </div>
+                    
+                    <div class="album-musicians-title">
+                        George Harrison
+                    </div>
+                    <div class="album-musicians-info">
+                        {{ beatle.harrison }}
+                    </div>
+                    
+                    <div class="album-musicians-title">
+                        Ringo Starr
+                    </div>
+                    <div class="album-musicians-info">
+                        {{ beatle.starr }}
+                    </div>
+                    
+                </div>
+                        
+            </div>
+
+            <div class="album-songs">
+
+                <div class="album-songs-head">
+                    Songtracks
+                </div>
+
+                <div *ngFor="let songs of _focusedAlbum.songs, let i = index">
+
+                    <div class="album-songs-title">
+                        {{ i + 1 }}- {{ songs.title }}
+                    </div>
+                    <div class="album-songs-songwriters">
+                        Songwriters: {{ songs.songwriters }}
+                    </div>
+                    <div class="album-songs-length">
+                        Duration: {{ songs.length }}
+                    </div>
+                    <div class="album-songs-lyrics">
+                        Lyrics:<br><div [innerHTML]="songs.lyrics"></div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+        <ng-template #notShow>
+            <div class="album-home">
+                    
+                <div class="album-header-title">
+                    {{ testText }}
+                </div>
+    
+                <div class="album-header-info" style="padding-bottom: 5%;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+                        magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+                        et dolore magna aliqua.
+                </div>
+
+            </div>
+        </ng-template>
+        
+
     </div>
 
 </div>

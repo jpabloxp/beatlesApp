@@ -1,9 +1,15 @@
+
 .cabecera{
     width: 100%;
     margin-top: 2%;
     overflow: hidden;
 
+    background-color: white;
     box-shadow: 0 5px 2px -5px #777;
+}
+.filler{
+    height: 50px;
+    width: 100%;
 }
 .nombre{
     width: 30%;

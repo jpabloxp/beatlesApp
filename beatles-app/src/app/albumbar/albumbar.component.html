@@ -10,7 +10,12 @@
         </mat-list-item>
     </mat-nav-list> -->
 
-    <mat-action-list *ngFor="let album of _albums">
-        <button mat-list-item (click)="selectecAlbum(album.name)"> {{ album.name }} </button>
+    <div class="header">
+        Albums
+    </div>
+
+
+    <mat-action-list *ngFor="let name of albumNames">
+        <button mat-list-item (click)="selectecAlbum(name)"> {{ name }} </button>
     </mat-action-list>
 </div>

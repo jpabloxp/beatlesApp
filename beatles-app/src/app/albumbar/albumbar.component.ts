@@ -11,37 +11,14 @@ export class AlbumbarComponent implements OnInit {
 
   fillerNav = Array.from({length: 18}, (_, i) => `Nav Item ${i + 1}`);
 
-
-  private _albums: Album[];
-  private _name: string;
-  private _year: string;
   public _selectedAlbum: string;
 
+  @Input() albumNames: string[];
   @Output() messageEvent = new EventEmitter<string>();
 
-  //constructor() {}
- 
-  constructor(private AlbumService: AlbumService) {
-    AlbumService.getAlbums().subscribe( (albums) => {
-      this._albums = albums;
-    });
-
-  }
+  constructor() {}
 
   ngOnInit() {
-  }
-
-
-  get name() {
-    return this._name;
-  }
-
-  get year() {
-    return this._year;
-  }
-
-  get albums(): any{
-    return this._albums;
   }
 
   selectecAlbum(selectedAlbum: string){

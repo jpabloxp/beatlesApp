@@ -7,13 +7,22 @@ import { Observable } from 'rxjs';
 export interface Album{
 
   _id?: string;
-  titre: string;
+  name: string;
   year: string;
   songs: [
     {
       title: string;
       songwriters: string;
       length: number;
+      lyrics: string;
+    }
+  ];
+  musicians: [
+    {
+      lennon: string;
+      macca: string;
+      harrison: string;
+      starr: string;
     }
   ];
 }
@@ -32,18 +41,22 @@ export class AlbumService {
   getAlbums(): Observable<Album[]> {
 
     const albumListUrl = environment.apiURL + "/album";
-    console.log(albumListUrl);
+    //console.log(albumListUrl);
 
     return this.http.get<Album[]>(albumListUrl);
   }
 
   // Get a single Album
-/*   getOneAlbum(id: string): Observable<Album> {
-    const getUrl = `${this.apiURL}/test/${id}`;
+  getOneAlbum(id: string): Observable<Album> {
+
+    const getUrl = `${this.apiURL}/album/${id}`;
     console.log(getUrl);
+
     return this.http.get<Album>(getUrl);
   }
 
+
+/*
   addAlbum(album: Album) {
 
     console.log('in service  ', album);
